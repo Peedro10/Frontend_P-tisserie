@@ -1,21 +1,72 @@
+/* Import Tailwind CSS styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Variables globales pour les couleurs et thèmes */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff; /* Couleur de fond pour le thème clair */
+  --foreground: #171717; /* Couleur du texte pour le thème clair */
+  --card-bg: #f9f9f9; /* Couleur de fond pour les cartes */
+  --card-text: #333; /* Couleur du texte pour les cartes */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0a0a; /* Couleur de fond pour le thème sombre */
+    --foreground: #ededed; /* Couleur du texte pour le thème sombre */
+    --card-bg: #1e1e1e; /* Couleur de fond pour les cartes en sombre */
+    --card-text: #ccc; /* Couleur du texte pour les cartes en sombre */
   }
 }
 
+/* Styles globaux */
 body {
+  color: var(--foreground); /* Texte principal */
+  background: var(--background); /* Fond principal */
+  font-family: Arial, Helvetica, sans-serif; /* Police par défaut */
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles pour les conteneurs */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Styles pour les titres */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif; /* Ajoutez cette police si souhaitée */
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Styles pour les cartes (produits) */
+.card {
+  background: var(--card-bg);
+  color: var(--card-text);
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajout d'une animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in;
 }
